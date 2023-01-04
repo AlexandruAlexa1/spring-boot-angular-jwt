@@ -1,0 +1,37 @@
+<h1 class="login-title">Login</h1>
+
+<div class="form-wrapper">
+    <img src="https://images.unsplash.com/photo-1565733293249-df7f8059d3f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80" alt="">
+
+    <form #loginForm="ngForm" (submit)="onLogin(loginForm.value)" class="login-form">
+        <div class="input-group">
+            <label for="email">E-mail:</label>
+            <input type="text" ngModel name="email" #email="ngModel" required>
+            <div *ngIf="email.invalid && email.touched" class="validation-error">
+                E-mail is required!
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" ngModel name="password" #password="ngModel" required>
+            <div *ngIf="password.invalid && password.touched" class="validation-error">
+                Password is required!
+            </div>
+        </div>
+        <input type="submit" [disabled]="loginForm.invalid" value="Login">
+        <div style="font-size: 1.5rem;">
+            Don't have an account?
+            <a routerLink="/register">Sign Up</a>
+        </div>
+    </form>
+</div>
+
+<!-- 
+Datele le setez in ngModel ngModel name="password"
+Pentru a seta datel in ngModel apelez la #password="ngModel"
+Apeleaza la #password="ngModel" si atunci cand doresti sa validezi Datele
+Toate datele din ngModel vor fi trimise cate ngForm
+Creaza o instanta ngForm #loginForm="ngForm"
+Poti trimite toate datel ca obiect JSON prin (submit)="onLogin(loginForm.value)" 
+Trebuie sa import FormsModule pentru a lucra cu ngForm si ngModel
+-->

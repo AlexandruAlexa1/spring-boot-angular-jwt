@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/security
+    username: root
+    password: 1122
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+jwt:
+  secret: LuSA^Ey$y7T^tYGqpe!U@8G*V*S5SmXyYC4zWSRx+9*HyR#)tvS#Xj#D#uzF)5Gp
+  
+ 
+  

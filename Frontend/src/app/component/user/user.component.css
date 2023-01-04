@@ -1,0 +1,154 @@
+.message {
+    font-size: 1.3rem;
+    float: right;
+    font-weight: bolder;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #000;
+    padding: 0 1rem;
+}
+
+.table-actions {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.add-user-btn {
+    font-size: 1.6rem;
+    color: #000;
+}
+
+table {
+    width: 100%;
+    font-size: 1.6rem;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table th, td {
+    border-bottom: .1rem solid #000;
+}
+
+
+.table-btn {
+    color: #000;
+    margin-right: 1.5rem;
+}
+
+.table-btn:nth-child(3) {
+    color: red;
+}
+
+/* Confirm Modal */
+.confirm-modal-content {
+    background-color: #fff;
+    width: 50rem;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+}
+
+.confirm-modal-message {
+    text-align: center;
+    margin: 5rem auto;
+}
+
+.confirm-modal-btns {
+    display: flex;
+    float: right;
+    margin: .5rem;
+}
+
+/* User Details Modal */
+.user-details-modal-content {
+    width: 100rem;
+    background-color: #fff;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user-details-modal-content h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    margin: 2rem 0;
+    font-size: 3rem;
+}
+
+.active-link {
+    background-color: aqua;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BEFORE */
+
+
+
+
+/* table {
+    width: 1000px;
+    border-collapse: collapse;
+}
+
+table, tr, td {
+    border-bottom: 1px solid #000;
+}
+
+
+.modal-content {
+    width: 500px;
+    height: 200px;
+    background-color: #fff;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: red;
+}
+
+.modal-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-btns {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.user-details-modal-content {
+    background-color: #fff;
+    width: 1000px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+

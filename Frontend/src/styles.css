@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    font-family: Roboto;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+.title {
+    font-size: 3rem;
+    margin: 5rem auto;
+    text-align: center;
+    letter-spacing: .5rem;
+    text-transform: uppercase;
+}
+
+.main {
+    width: 100rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.close-modal {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-size: 1.6rem;
+    color: red;
+    font-weight: bold;
+}
+/* End of Modal */
+
+/* User Form */
+.input-group {
+    display: flex;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.input-group label {
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    border-bottom: .1rem solid #000;
+    width: 80%;
+}
+
+.submit-btn {
+    width: 100%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: .5rem 0;
+    letter-spacing: 1rem;
+    border: .1rem solid #000;
+    background: transparent;
+}
+
+.close-form-btn {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    font-size: 1.5rem;
+}
+/* End of User Form */

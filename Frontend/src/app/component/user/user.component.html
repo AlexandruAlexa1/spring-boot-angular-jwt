@@ -1,0 +1,127 @@
+<user-profile></user-profile>
+
+<h1 class="title">List Users</h1>
+
+<div class="main">
+
+    <div class="table-actions">
+        <a *ngIf="isAdmin || isManager" routerLink="/users/new" class="add-user-btn fa-solid fa-user-plus"></a>
+        <app-search></app-search>
+    </div>
+
+    <div *ngIf="message" class="message">{{message}}</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>E-mail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <a class="table-btn fa-solid fa-file" title="View details" (click)="viewUserDetails(user)"></a>
+                    <a *ngIf="isAdmin || isManager || isEditor" routerLink="/users/edit/{{user.id}}" 
+                        class="table-btn fa-solid fa-pen-to-square" title="Edit user"></a>
+                    <a *ngIf="isAdmin" class="table-btn fa-sharp fa-solid fa-user-minus" title="Delete user" (click)="showConfirmModal(user.id)"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <ul style="font-size: 2rem; display: flex; margin: 2rem;">
+        <li *ngFor="let p of totalPages; let i = index">
+            <a href="" (click)="setPage(i, $event)" [ngClass]="{'active-link' : i == pageNum}">{{i + 1}}</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Confirm Modal -->
+<div class="modal" id="confirm-modal">
+    <div class="confirm-modal-content">
+        <button class="close-modal fa-regular fa-x" title="Close" (click)="closeModal()"></button>
+        <div class="confirm-modal-message">Message</div>
+        <div class="confirm-modal-btns">
+            <button (click)="closeModal()">Cancel</button>
+            <button (click)="deleteUser()">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- User Details Modal -->
+<div *ngIf="selectedUser" class="modal" id="user-details-modal">
+    <div class="user-details-modal-content">
+        <button class="close-modal fa-regular fa-x" (click)="closeModal()"></button>
+        <h1>User Detils</h1>
+        <div class="input-group">
+            <label for="id">ID</label>
+            <input type="text" name="id" [(ngModel)]="selectedUser.id">
+        </div>
+
+        <div class="input-group">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" [(ngModel)]="selectedUser.email">
+        </div>
+        
+        <div class="input-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" [(ngModel)]="selectedUser.firstName">
+        </div>
+        
+        <div class="input-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" [(ngModel)]="selectedUser.lastName">
+        </div>
+        
+        <div class="input-group">
+            <label for="city">City:</label>
+            <input type="text" name="city" [(ngModel)]="selectedUser.address.city">
+        </div>
+        
+        <div class="input-group">
+            <label for="state">State:</label>
+            <input type="text" name="state" [(ngModel)]="selectedUser.address.state">
+        </div>
+        
+        <div class="input-group">
+            <label for="country">Country:</label>
+            <input type="text" name="country" [(ngModel)]="selectedUser.address.country">
+        </div>
+        
+        <div class="input-group">
+            <label for="postalCode">Postal code:</label>
+            <input type="text" name="postalCode" [(ngModel)]="selectedUser.address.postalCode">
+        </div>
+        
+        <div class="input-group">
+            <label for="phoneNumber">Phone number:</label>
+            <input type="text" name="phoneNumber" [(ngModel)]="selectedUser.address.phoneNumber">
+        </div>
+        
+        <div class="input-group">
+            <label for="enabled">Enabled:</label>
+            <input type="checkbox" name="enabled" [(ngModel)]="selectedUser.enabled">
+        </div>
+        
+        <div class="input-group">
+            <label for="notLocked">Locked:</label>
+            <input type="checkbox" name="notLocked" [(ngModel)]="selectedUser.notLocked">
+        </div>
+        
+        <div class="input-group">
+            <label for="role">Role(s):</label>
+            <li *ngFor="let role of selectedUser.roles">
+                <ul>{{role.name}}</ul>
+            </li>
+        </div>
+    </div>
+</div>

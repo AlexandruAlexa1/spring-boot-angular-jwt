@@ -1,0 +1,163 @@
+<h1 class="title">Register</h1>
+
+<div class="main">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="input-group">
+            <label for="email">E-mail:</label>
+            <input formControlName="email" type="email" name="email">
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validation-error">
+                <div *ngIf="email.errors?.['required']">
+                    E-mail is required.
+                </div>
+                <div *ngIf="email.errors?.['minlength']">
+                    E-mail must be at least 5 characters long.
+                </div>
+                <div *ngIf="email.errors?.['maxlength']">
+                    E-mail must have maximum 125 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input formControlName="password" type="password" name="password">
+
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="validation-error">
+                <div *ngIf="password.errors?.['required']">
+                    Password is required.
+                </div>
+                <div *ngIf="password.errors?.['minlength']">
+                    Password must be at least 5 characters long.
+                </div>
+                <div *ngIf="password.errors?.['maxlength']">
+                    Passwrod must have maximum 64 characters long.
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label for="firstName">First Name:</label>
+            <input formControlName="firstName" type="text" name="firstName">
+
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="validation-error">
+                <div *ngIf="firstName.errors?.['required']">
+                    First name is required.
+                </div>
+                <div *ngIf="firstName.errors?.['minlength']">
+                    First name must be at least 2 characters long.
+                </div>
+                <div *ngIf="firstName.errors?.['maxlength']">
+                    First name must have maximum 45 characters long.
+                </div>
+            </div> 
+        </div>
+
+        <div class="input-group">
+            <label for="lastName">Last Name:</label>
+            <input formControlName="lastName" type="text" name="lastName">
+
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="validation-error">
+                <div *ngIf="lastName.errors?.['required']">
+                    Last name is required.
+                </div>
+                <div *ngIf="lastName.errors?.['minlength']">
+                    Last name must be at least 2 characters long.
+                </div>
+                <div *ngIf="lastName.errors?.['maxlength']">
+                    Last name must have maximum 45 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div formGroupName="address">
+        <div class="input-group">
+            <label for="city">City:</label>
+            <input formControlName="city" type="text" name="city">
+
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="validation-error">
+                <div *ngIf="city.errors?.['required']">
+                    City is required.
+                </div>
+                <div *ngIf="city.errors?.['minlength']">
+                    City must be at least 2 characters long.
+                </div>
+                <div *ngIf="city.errors?.['maxlength']">
+                    City must have maximum 20 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="state">State:</label>
+            <input formControlName="state" type="text" name="state">
+
+            <div *ngIf="state.invalid && (state.dirty || state.touched)" class="validation-error">
+                <div *ngIf="state.errors?.['required']">
+                    State is required.
+                </div>
+                <div *ngIf="state.errors?.['minlength']">
+                    State must be at least 2 characters long.
+                </div>
+                <div *ngIf="state.errors?.['maxlength']">
+                    State must have maximum 20 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="country">Country:</label>
+            <input formControlName="country" type="text" name="country">
+
+            <div *ngIf="country.invalid && (country.dirty || country.touched)" class="validation-error">
+                <div *ngIf="country.errors?.['required']">
+                    Country is required.
+                </div>
+                <div *ngIf="country.errors?.['minlength']">
+                    Country must be at least 2 characters long.
+                </div>
+                <div *ngIf="country.errors?.['maxlength']">
+                    Country must have maximum 20 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="postalCode">Postal code:</label>
+            <input formControlName="postalCode" type="text" name="postalCode">
+            
+            <div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)" class="validation-error">
+                <div *ngIf="postalCode.errors?.['required']">
+                    Postal code is required.
+                </div>
+                <div *ngIf="postalCode.errors?.['minlength']">
+                    Postl code must be at least 2 characters long.
+                </div>
+                <div *ngIf="postalCode.errors?.['maxlength']">
+                    Postal Code must have maximum 20 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="phoneNumber">Phone number:</label>
+            <input formControlName="phoneNumber" type="text" name="phoneNumber">
+
+            <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="validation-error">
+                <div *ngIf="phoneNumber.errors?.['required']">
+                    Phone Number is required.
+                </div>
+                <div *ngIf="phoneNumber.errors?.['minlength']">
+                    Phone Number must be at least 10 characters long.
+                </div>
+                <div *ngIf="phoneNumber.errors?.['maxlength']">
+                    Phone Number must have maximum 15 characters long.
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <a routerLink="/login" class="close-form-btn fa-regular fa-x">Back</a>
+        <input type="submit" value="Save" class="submit-btn" [disabled]="registerForm.invalid">
+    </form>
+</div>

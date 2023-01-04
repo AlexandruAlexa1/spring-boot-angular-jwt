@@ -1,0 +1,141 @@
+.login-title {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 45px;
+    letter-spacing: 50px;
+    text-shadow: 2px 2px 1px #000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: login-title .5s 2s linear forwards;
+}
+
+@keyframes login-title {
+    100% {
+        top: 10%;
+    }
+}
+
+.form-wrapper {
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.form-wrapper::before,
+.form-wrapper::after {
+    content: '';
+    position: absolute;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    top: -2.5px;
+    left: -2.5px;
+    background: linear-gradient(
+        45deg, black, #fff, aqua, blue
+    );
+    z-index: -1;
+    background-size: 300%;
+    visibility: hidden;
+    opacity: 0;
+    animation: border 20s linear infinite, visible 1s 2s linear forwards;
+}
+
+.form-wrapper::after {
+    filter: blur(100px);
+}
+
+@keyframes border {
+    0%, 100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 300%;
+    }
+}
+
+@keyframes visible {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+.form-wrapper img {
+    width: 50%;
+    position: relative;
+    left: -50%;
+    visibility: hidden;
+    opacity: 0;
+    animation: img .8s 1s linear forwards;
+}
+
+
+@keyframes img {
+    100% {
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+.login-form {
+  width: 50%;
+  position: relative;
+  right: -50%;
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5px;
+  visibility: hidden;
+  opacity: 0;
+  animation: form .8s 1s linear forwards;
+}
+
+@keyframes form {
+    100% {
+        right: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+}
+
+.validation-error {
+    background-color: rgb(127, 206, 255);
+    letter-spacing: .5px;
+}
+
+.login-form input[type = submit] {
+    width: 100%;
+    background: none;
+    border: 1px solid #000;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
